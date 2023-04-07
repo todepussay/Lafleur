@@ -1,0 +1,61 @@
+body{
+  background-image: url("sol.jpg");
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 50px;
+  padding: 20px;
+  background-image: url("herbe.jpg");
+  border-radius: 10px;
+  box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.5);
+}
+label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+}
+h1 {
+    text-align:center;
+    color:#fff;
+}
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+input[type="reset"] {
+    width: 150px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+input[type="submit"] {
+  width: 150px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.error {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
