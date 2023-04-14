@@ -13,7 +13,7 @@ CREATE TABLE categorie (
   cat_code char(3) NOT NULL default '',
   cat_libelle varchar(50) NOT NULL default '',
   PRIMARY KEY  (cat_code)
-)  ;
+)ENGINE=InnoDB;   ;
 
 
 --
@@ -35,8 +35,8 @@ CREATE TABLE produit (
   pdt_image varchar(50) NOT NULL default '',
   pdt_categorie char(3) NOT NULL default '',
   PRIMARY KEY  (pdt_ref),
-  CONSTRAINT FK_ref FOREIGN KEY (pdt_categorie) REFERENCES categorie (cat_code)
-) ;
+  CONSTRAINT FK_categorie FOREIGN KEY (pdt_categorie) REFERENCES categorie(cat_code)
+)ENGINE=InnoDB;  ;
 
 --
 -- Dumping data for table `produit`
@@ -60,5 +60,5 @@ CREATE TABLE utilisateur (
   user_id char(50) NOT NULL default '',
   user_password varchar(50) NOT NULL default '',
   user_role varchar (50) NOT NULL default '',
-  PRIMARY KEY  (cat_code)
-)  ;
+  PRIMARY KEY  (user_id)
+)ENGINE=InnoDB;  ;
