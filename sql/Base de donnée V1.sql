@@ -60,5 +60,5 @@ CREATE TABLE utilisateur (
   user_id char(50) NOT NULL default '',
   user_password varchar(50) NOT NULL default '',
   user_role varchar (50) NOT NULL default '',
-  PRIMARY KEY  (cat_code)
+  PRIMARY KEY  (user_id)
 )  ;
