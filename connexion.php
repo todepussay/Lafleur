@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Page de connexion</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/Connexionstyle.css">
   </head>
   <body>
     <h1>Page de connexion</h1>

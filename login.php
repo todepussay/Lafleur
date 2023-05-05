@@ -13,7 +13,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
   $result = mysqli_query($conn, $query);
   if (mysqli_num_rows($result) == 1) {
     $_SESSION['username'] = $username;
-    header('Location: accueil.php');
+    header('Location: index.html');
     exit();
   } else {
     echo "Nom d'utilisateur ou mot de passe incorrect";
