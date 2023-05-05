@@ -32,10 +32,8 @@ require_once "connect.php";
     
                             if ($sql->rowCount() == 0) {
                                 echo"<p>Il n'y a aucune catégorie(s) disponible</p>";
-                            } else {
-                                echo"<p>Nombre de catégorie(s) : ".$sql->rowCount()."</p>";
                             }
-                    
+
                             while ($ligne = $sql->fetch()) { 
                                 echo'<div>
                                         <table>
