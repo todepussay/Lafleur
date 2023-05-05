@@ -42,7 +42,7 @@
                 </table>
             </div>';
     }    
-    $requete->closeCursor(); // enlève le curseur de la requête de $requete
+    $sql->closeCursor(); // enlève le curseur de la requête de $requete
     ?>
 </body>
 </html>
