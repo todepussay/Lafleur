@@ -28,17 +28,12 @@
         echo'<div class="tableauSQL">
                 <table>
                     <tr>
-                        <td><strong>'.$ligne['pdt_ref'].'</strong></td>
+                        <td><strong>'.$ligne['pdt_designation'].'</strong></td>
+                        <td>'.$ligne['pdt_prix'].'€'.'</td>
+                        <td>'."<img src='images/".$ligne['pdt_image']."' width='100' height='100'>".'</td>
+                        <td><a href="produit.php?id='.$ligne['pdt_ref'].'">Voir le produit</a></td>
                     </tr>
-                    <tr>
-                        <td>'.$ligne['pdt_designation'].'</td>
-                    </tr>
-                    <tr>
-                        <td>'.$ligne['pdt_prix'].'</td>
-                    </tr>
-                    <tr>
-                        <td>'.$ligne['pdt_image'].'</td>
-                    </tr>
+
                 </table>
             </div>';
     }    
