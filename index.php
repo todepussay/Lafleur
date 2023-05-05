@@ -24,7 +24,7 @@ session_start();
         </header>
         <div id="centre">
                 <nav>
-                        <p id="accueil"><a href="#" >Accueil</a></p> 
+                        <p id="accueil"><a href="index.php" >Accueil</a></p> 
                         <p id="pdt">Nos produits</p>
                         <p id="accueil" ><a href="categorie.php?id=bul" >Bulbes</a></p>
                         <p id="accueil"><a href="categorie.php?id=mas" >Plantes à massif</a></p>

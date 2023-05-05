@@ -62,11 +62,11 @@ if (isset($_POST['quantite'])){
         </header>
         <div id="centre">
                 <nav>
-                        <p id="accueil"><a href="#" >Accueil</a></p> 
+                        <p id="accueil"><a href="index.php" >Accueil</a></p> 
                         <p id="pdt">Nos produits</p>
-                        <p id="accueil"><a href="#" >Bulbes</a></p>
-                        <p id="accueil"><a href="#" >Plantes à massif</a></p>
-                        <p id="accueil"><a href="#" >Rosier</a></p> 
+                        <p id="accueil"><a href="categorie.php?id=bul" >Bulbes</a></p>
+                        <p id="accueil"><a href="categorie.php?id=mas" >Plantes à massif</a></p>
+                        <p id="accueil"><a href="categorie.php?id=ros" >Rosier</a></p> 
                         </br>
                         </br> 
                         </br> 
