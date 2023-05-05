@@ -79,7 +79,11 @@ if (isset($_POST['quantite'])){
                         </br> 
                         </br> 
                         </br>
-                        <p id="accueil"><a href="accueillafleur.php" >Connexion</a></p>
+                        <?php if(!isset($_SESSION['user'])): ?>
+                        <p id="accueil"><a href="connexion.php" >Connexion</a></p>
+                        <?php else : ?>
+                        <p id="accueil"><a href="logout.php">Deconnexion</a></p>
+                        <?php endif; ?>
                 </nav>
                 <section>
 
