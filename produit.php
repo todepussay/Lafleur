@@ -22,6 +22,8 @@ if (!isset($_GET["ref"])){
 
 }
 
+$existant = false;
+
 if (isset($_POST['quantite'])){
     if (!isset($_SESSION['user'])){
         header("Location: connexion.php");
@@ -31,10 +33,15 @@ if (isset($_POST['quantite'])){
         }
 
         for ($i = 0; $i < count($_SESSION['panier']); $i++){
-            
+            if ($_SESSION['panier'][$i]["ref"] == $_GET["ref"]){
+                $_SESSION['panier'][$i]["quantite"] += $_POST["quantite"];
+                $existant = true;
+            }
         }
 
-        $_SESSION['panier'][] =  array("ref" => $_GET["ref"], "quantite" => $_POST["quantite"]);
+        if (!$existant){
+            $_SESSION['panier'][] =  array("ref" => $_GET["ref"], "quantite" => intval($_POST["quantite"]));
+        }
     }
     var_dump($_SESSION);
 }
