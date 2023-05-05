@@ -13,7 +13,7 @@ CREATE TABLE categorie (
   cat_code char(3) NOT NULL default '',
   cat_libelle varchar(50) NOT NULL default '',
   PRIMARY KEY  (cat_code)
-)ENGINE=InnoDB;   ;
+)ENGINE=InnoDB;
 
 
 --
