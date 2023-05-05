@@ -69,17 +69,21 @@ if (isset($_POST['quantite'])){
         </header>
         <div id="centre">
                 <nav>
-                        <p id="accueil"><a href="#" >Accueil</a></p> 
+                        <p id="accueil"><a href="index.php" >Accueil</a></p> 
                         <p id="pdt">Nos produits</p>
-                        <p id="accueil"><a href="#" >Bulbes</a></p>
-                        <p id="accueil"><a href="#" >Plantes à massif</a></p>
-                        <p id="accueil"><a href="#" >Rosier</a></p> 
+                        <p id="accueil"><a href="categorie.php?id=bul" >Bulbes</a></p>
+                        <p id="accueil"><a href="categorie.php?id=mas" >Plantes à massif</a></p>
+                        <p id="accueil"><a href="categorie.php?id=ros" >Rosier</a></p> 
                         </br>
                         </br> 
                         </br> 
                         </br> 
                         </br>
-                        <p id="accueil"><a href="accueillafleur.php" >Connexion</a></p>
+                        <?php if(!isset($_SESSION['user'])): ?>
+                        <p id="accueil"><a href="connexion.php" >Connexion</a></p>
+                        <?php else : ?>
+                        <p id="accueil"><a href="logout.php">Deconnexion</a></p>
+                        <?php endif; ?>
                 </nav>
                 <section>
 
