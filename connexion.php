@@ -6,6 +6,8 @@
 <?php
 // Connexion à la base de données
 
+session_start();
+
 require "connect.php";
 
 // Vérification de la connexion

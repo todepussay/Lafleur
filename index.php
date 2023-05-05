@@ -34,7 +34,11 @@ session_start();
                         </br> 
                         </br> 
                         </br>
+                        <?php if(!isset($_SESSION['user'])): ?>
                         <p id="accueil"><a href="connexion.php" >Connexion</a></p>
+                        <?php else : ?>
+                        <p id="accueil"><a href="logout.php">Deconnexion</a></p>
+                        <?php endif; ?>
                 </nav>
                 <section>
                         <h3>"Dites-le avec Lafleur"</h3>

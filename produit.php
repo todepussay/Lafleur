@@ -29,9 +29,14 @@ if (isset($_POST['quantite'])){
         if (!isset($_SESSION['panier'])){
             $_SESSION['panier'] = array();
         }
-        $_SESSION['panier'].push(array("ref" => $_GET["ref"], "quantite" => $_POST["quantite"]));
+
+        for ($i = 0; $i < count($_SESSION['panier']); $i++){
+            
+        }
+
+        $_SESSION['panier'][] =  array("ref" => $_GET["ref"], "quantite" => $_POST["quantite"]);
     }
-    var_dump($_SESSION['panier']);
+    var_dump($_SESSION);
 }
 
 
