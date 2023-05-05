@@ -1,6 +1,8 @@
 <?php
 
+session_start();
 
+require_once "connect.php";
 
 
 ?>
@@ -40,6 +42,8 @@
                 <section>
 
                     <h2>Produit</h2>
+
+
 
 
 
