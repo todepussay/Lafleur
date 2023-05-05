@@ -1,12 +1,19 @@
+<?php
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Accueil Société Lafleur</title>
-    <meta charset="utf-8" />
-    <link type="text/css" rel="stylesheet" href="css/accueil.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/accueil.css">
+    <link rel="stylesheet" href="css/produit.css">
 </head>
-
 <body>
 
     <div id="bloc_page">
@@ -28,18 +35,20 @@
                         </br> 
                         </br> 
                         </br>
-                        <p id="accueil"><a href="connexion.php" >Connexion</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Connexion</a></p>
                 </nav>
                 <section>
-                        <h3>"Dites-le avec Lafleur"</h3>
-                        <p><img  src="images/accueil.jpg"  /></p>
-                        <h4> pour recevoir un bon de commande</h4>
-                        <h4> Appelez notre service commercial au 03.22.84.65.74 </h4>
+
+                    <h2>Produit</h2>
+
+
+
                 </section>
         </div>
         <footer>
                 <h2>&reg; copyrights Groupe 1 r&eacute;alis&eacute; le 07/04/2023 </h2>
         </footer>
     </div>
+    
 </body>
 </html>
