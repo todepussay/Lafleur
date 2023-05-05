@@ -18,17 +18,14 @@
         </header>
         <div id="centre">
                 <nav>
-                        <p id="accueil"><a href="accueillafleur.php" >Accueil</a></p> 
-                        <p id="pdt">Nos produits</p>
-                        <p id="accueil"><a href="accueillafleur.php" >Bulbes</a></p>
-                        <p id="accueil"><a href="accueillafleur.php" >Plantes à massif</a></p>
-                        <p id="accueil"><a href="accueillafleur.php" >Rosier</a></p> 
+                        <p id="accueil"><a href="accueillafleur.php" >Accueil</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Base de donnée</a></p> 
                         </br>
                         </br> 
                         </br> 
                         </br> 
                         </br>
-                        <p id="accueil"><a href="accueillafleur.php" >Connexion</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Deconnexion </a></p>
                 </nav>
                 <section>
                         <form action="miseajour.php" method="GET">

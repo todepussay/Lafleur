@@ -18,17 +18,14 @@
         </header>
         <div id="centre">
                 <nav>
-                        <p id="accueil"><a href="accueillafleur.php" >Accueil</a></p> 
-                        <p id="pdt">Nos produits</p>
-                        <p id="accueil"><a href="accueillafleur.php" >Bulbes</a></p>
-                        <p id="accueil"><a href="accueillafleur.php" >Plantes à massif</a></p>
-                        <p id="accueil"><a href="accueillafleur.php" >Rosier</a></p> 
+                        <p id="accueil"><a href="accueillafleur.php" >Accueil</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Base de donnée</a></p> 
                         </br>
                         </br> 
                         </br> 
                         </br> 
                         </br>
-                        <p id="accueil"><a href="accueillafleur.php" >Connexion</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Deconnexion </a></p>
                 </nav>
                 <section>
                         <h3>Ajout d'un produit</h3>
@@ -49,26 +46,29 @@
                         **/
                         require 'sqlconnect.php';
 
-                        $nom=$_GET["nomlivre"];
-                        $autheur=$_GET["authlivre"];
-                        $prix=$_GET["prixlivre"];
-                        $isbn=$_GET["isbnlivre"];
+                        $ref=$_GET["reffleur"];
+                        $nom=$_GET["nomfleur"];
+                        $prix=$_GET["prixfleur"];
+                        $image=$_GET["imagefleur"];
+                        $categorie=$_GET["catfleur"];
 
-                        $param01=$isbn;
-                        $param02=$autheur;
-                        $param03=$nom;
-                        $param04=$prix;
+                        $param00=$ref;
+                        $param01=$nom;
+                        $param02=$prix;
+                        $param03=$image;
+                        $param04=$categorie;
 
-                        $sql= "INSERT INTO books (isbn, author, title, price) VALUES (:recher01, :recher02, :recher03, :recher04);";
+                        $sql= "INSERT INTO produit (pdt_ref, pdt_designation, pdt_prix, pdt_image, pdt_categorie) VALUES (:recher00, :recher01, :recher02, :recher03, :recher04);";
 
                         $requete = $connection->prepare($sql);
+                        $requete->bindParam(":recher00", $param00);
                         $requete->bindParam(":recher01", $param01);
                         $requete->bindParam(":recher02", $param02);
                         $requete->bindParam(":recher03", $param03);
                         $requete->bindParam(":recher04", $param04);
                         $requete->execute();
 
-                        echo '<p class="thick"> Titre: ' . $nom . ' </p> Auteur: ' . $autheur . ' </br> ISNB: ' . $isbn . ' </br> Prix: ' . $prix . "</br>";
+                        echo '<p class="thick">Référence: ' . $ref . '</p> Nom: ' . $nom . ' </p> Prix: ' . $prix . ' </br> Image: ' . $image . ' </br> Categorie: ' . $categorie . "</br>";
 
                         ?>
                 </section>

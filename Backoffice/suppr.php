@@ -18,17 +18,14 @@
         </header>
         <div id="centre">
                 <nav>
-                        <p id="accueil"><a href="accueillafleur.php" >Accueil</a></p> 
-                        <p id="pdt">Nos produits</p>
-                        <p id="accueil"><a href="accueillafleur.php" >Bulbes</a></p>
-                        <p id="accueil"><a href="accueillafleur.php" >Plantes à massif</a></p>
-                        <p id="accueil"><a href="accueillafleur.php" >Rosier</a></p> 
+                        <p id="accueil"><a href="accueillafleur.php" >Accueil</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Base de donnée</a></p> 
                         </br>
                         </br> 
                         </br> 
                         </br> 
                         </br>
-                        <p id="accueil"><a href="accueillafleur.php" >Connexion</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Deconnexion </a></p>
                 </nav>
                 <section>
                         <?php
@@ -47,23 +44,12 @@
                         * @link localhost
                         **/
                         require 'sqlconnect.php';
-                        $isbn=$_GET["type"];
+                        $ref=$_GET["type"];
         
-                        $sql= "DELETE FROM book_reviews WHERE isbn='" . $isbn . "' ;";
+                        $sql= "DELETE FROM produit WHERE pdt_ref='" . $ref . "' ;";
                         $requete = $connection->prepare($sql);
                         $requete->execute();
 
-                        $sql= "DELETE FROM orders WHERE isbn='" . $isbn . "' ;";
-                        $requete = $connection->prepare($sql);
-                        $requete->execute();
-
-                        $sql= "DELETE FROM order_items WHERE isbn='" . $isbn . "' ;";
-                        $requete = $connection->prepare($sql);
-                        $requete->execute();
-
-                        $sql= "DELETE FROM books WHERE isbn='" . $isbn . "' ;";
-                        $requete = $connection->prepare($sql);
-                        $requete->execute();
                         ?>
                 </section>
         </div>

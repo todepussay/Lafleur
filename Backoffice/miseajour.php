@@ -18,17 +18,14 @@
         </header>
         <div id="centre">
                 <nav>
-                        <p id="accueil"><a href="accueillafleur.php" >Accueil</a></p> 
-                        <p id="pdt">Nos produits</p>
-                        <p id="accueil"><a href="accueillafleur.php" >Bulbes</a></p>
-                        <p id="accueil"><a href="accueillafleur.php" >Plantes à massif</a></p>
-                        <p id="accueil"><a href="accueillafleur.php" >Rosier</a></p> 
+                        <p id="accueil"><a href="accueillafleur.php" >Accueil</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Base de donnée</a></p> 
                         </br>
                         </br> 
                         </br> 
                         </br> 
                         </br>
-                        <p id="accueil"><a href="accueillafleur.php" >Connexion</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Deconnexion </a></p>
                 </nav>
                 <section>
                         <h3>Mise à jour de la base de données.</h3>
@@ -54,33 +51,36 @@
                         // verification du type de chaine
                         if ($type=="add") {
                                 echo '<form action="ajout.php" method="GET">';
-                                echo "Ajout d'un livre:<br><br>";
+                                echo "Ajout d'une fleur:<br><br>";
 
-                                echo "Entrer le nom du livre.<br>";
-                                echo '<input type="text" name="nomlivre"/><br>';
+                                echo "Entrer la référence de la fleur.<br>";
+                                echo '<input type="text" name="reffleur"/><br>';
 
-                                echo "Entrer l'auteur du livre.<br>";
-                                echo '<input type="text" name="authlivre"/><br>';
+                                echo "Entrer le nom de la fleur.<br>";
+                                echo '<input type="text" name="nomfleur"/><br>';
 
-                                echo "Entrer le prix du livre.<br>";
-                                echo '<input type="text" name="prixlivre"/><br>';
+                                echo "Entrer le prix de la fleur.<br>";
+                                echo '<input type="text" name="prixfleur"/><br>';
 
-                                 echo "Entrer l'ISBN du livre.<br>";
-                                echo '<input type="text" name="isbnlivre"/><br>';
+                                echo "Entrer le nom de l'image de la fleur.<br>";
+                                echo '<input type="text" name="imagefleur"/><br>';
+
+                                 echo "Entrer la catégorie de la fleur (bul pour bulbe, mas pour massifs ou ros pour roses).<br>";
+                                echo '<input type="text" name="catfleur"/><br>';
 
                                 echo '<p><input type="reset" value="Annulez"><input type="submit" value="Valider"></p>';
                                 echo '</form>';
                         } else { 
                                 if ($type=="mod") {
                                     echo '<form action="maj2.php" method="GET">' ;
-                                    echo "Modification d'un livre:<br><br>";
+                                    echo "Modification d'une fleur:<br><br>";
 
-                                    echo "Choisir le livre à modifier.<br>";
-                                    $sql = "SELECT * FROM books;";
+                                    echo "Choisir la fleur à modifier.<br>";
+                                    $sql = "SELECT * FROM produit;";
                                     $requete = $connection->query($sql);
                                     echo '<select name="type">' ;
                                     while ($ligne = $requete->fetch()) {
-                                    echo "<option value='$ligne[isbn]'>" . $ligne['title'] . "</option>";
+                                    echo "<option value='$ligne[pdt_ref]'>" . $ligne['pdt_designation'] . "</option>";
                                 }
                                 $requete->closeCursor();
 
@@ -90,14 +90,14 @@
                                 echo '</form>';
                         } else {
                                 echo '<form action="suppr.php" method="GET">';
-                                echo "Suppression d'un livre:<br><br>";
+                                echo "Suppression d'une fleur:<br><br>";
 
-                                echo "Choisisser le livre à supprimer.<br>"; 
-                                $sql = "SELECT * FROM books;";
+                                echo "Choisisser la fleur à supprimer.<br>"; 
+                                $sql = "SELECT * FROM produit;";
                                 $requete = $connection->query($sql);
                                 echo '<select name="type">' ;
                                 while ($ligne = $requete->fetch()) {
-                                        echo "<option value='$ligne[isbn]'>" . $ligne['title'] . "</option>";
+                                        echo "<option value='$ligne[pdt_ref]'>" . $ligne['pdt_designation'] . "</option>";
                                 }
                                 $requete->closeCursor();
                                 echo "</select><br><br>";
