@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : ven. 05 mai 2023 à 09:02
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Hôte : 127.0.0.1:3306
+-- Généré le : ven. 05 mai 2023 à 08:57
+-- Version du serveur : 8.0.31
+-- Version de PHP : 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,10 +27,12 @@ SET time_zone = "+00:00";
 -- Structure de la table `categorie`
 --
 
-CREATE TABLE `categorie` (
+DROP TABLE IF EXISTS `categorie`;
+CREATE TABLE IF NOT EXISTS `categorie` (
   `cat_code` char(3) NOT NULL DEFAULT '',
-  `cat_libelle` varchar(50) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `cat_libelle` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`cat_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `categorie`
@@ -47,13 +49,16 @@ INSERT INTO `categorie` (`cat_code`, `cat_libelle`) VALUES
 -- Structure de la table `produit`
 --
 
-CREATE TABLE `produit` (
+DROP TABLE IF EXISTS `produit`;
+CREATE TABLE IF NOT EXISTS `produit` (
   `pdt_ref` char(3) NOT NULL DEFAULT '',
   `pdt_designation` varchar(50) NOT NULL DEFAULT '',
   `pdt_prix` decimal(5,2) NOT NULL DEFAULT '0.00',
   `pdt_image` varchar(50) NOT NULL DEFAULT '',
-  `pdt_categorie` char(3) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `pdt_categorie` char(3) NOT NULL DEFAULT '',
+  PRIMARY KEY (`pdt_ref`),
+  KEY `FK_categorie` (`pdt_categorie`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `produit`
@@ -76,52 +81,25 @@ INSERT INTO `produit` (`pdt_ref`, `pdt_designation`, `pdt_prix`, `pdt_image`, `p
 -- Structure de la table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(1000) NOT NULL,
-  `password` varchar(1000) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+  `password` varchar(1000) NOT NULL,
+  `nom` varchar(20) NOT NULL,
+  `prenom` varchar(60) NOT NULL,
+  `adresse` varchar(255) NOT NULL,
+  `telephone` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`) VALUES
-(1, 'tom@mail.com', '1234'),
-(2, 'beaujoin@mail.com', '1324');
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `categorie`
---
-ALTER TABLE `categorie`
-  ADD PRIMARY KEY (`cat_code`);
-
---
--- Index pour la table `produit`
---
-ALTER TABLE `produit`
-  ADD PRIMARY KEY (`pdt_ref`),
-  ADD KEY `FK_categorie` (`pdt_categorie`);
-
---
--- Index pour la table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+INSERT INTO `users` (`id`, `email`, `password`, `nom`, `prenom`, `adresse`, `telephone`) VALUES
+(1, 'tom@mail.com', '1234', '', '', '', ''),
+(2, 'beaujoin@mail.com', '1324', '', '', '', '');
 
 --
 -- Contraintes pour les tables déchargées
