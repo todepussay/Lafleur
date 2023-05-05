@@ -1,0 +1,102 @@
+
+/* Corps de la page */
+body {  
+    background-image: url("fondLogin.jpg");
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+/* Titres */
+form:first-of-type titre {
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #6E78AA;
+}
+/* Formulaire de login */
+form:first-of-type {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #6E78AA;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form:first-of-type label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #6E78AA;
+}
+
+form:first-of-type input[type=text],
+form:first-of-type input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: #F0F0F0;
+}
+
+form:first-of-type input[type=submit] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #6E78AA;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+form:first-of-type input[type=submit]:hover {
+    background-color: #48529F;
+}
+
+/* Formulaire d'inscription */
+form:last-of-type {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #6E78AA;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form:last-of-type label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #6E78AA;
+}
+
+form:last-of-type input[type=text],
+form:last-of-type input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: #F0F0F0;
+}
+
+form:last-of-type input[type=submit] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #6E78AA;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+form:last-of-type input[type=submit]:hover {
+    background-color: #48529F;
+}
+  
