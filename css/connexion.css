@@ -1,7 +1,7 @@
 
 /* Corps de la page */
 body {  
-    background-image: url("fondLogin.jpg");
+    background-image: url("../css/fondLogin.jpg");
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
