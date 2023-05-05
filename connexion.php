@@ -6,6 +6,8 @@
 <?php
 // Connexion à la base de données
 
+session_start();
+
 require "connect.php";
 
 // Vérification de la connexion
@@ -28,7 +30,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
     if (count($result) > 0) {
         $_SESSION['user'] = $login;
         // Si les informations de connexion sont valides, rediriger vers la page d'accueil
-        header("Location: index.html");
+        header("Location: accueil.php");
     } else {
         // Si les informations de connexion sont invalides, afficher un message d'erreur
         echo "<p style='color:#FF0000';>Nom d'utilisateur ou mot de passe incorrect.</p>";

@@ -1,6 +1,43 @@
 <?php
 
+session_start();
 
+require_once "connect.php";
+
+if (!isset($_GET["ref"])){
+    header("Location: index.php");
+} else {
+
+    $sql = "SELECT * FROM produit WHERE pdt_ref = :ref";
+    $sql = $connect->prepare($sql);
+    $sql->bindValue(":ref", $_GET["ref"]);
+    $sql->execute();
+    $result = $sql->fetchAll();
+
+    if (count($result) != 1){
+        header("Location: index.php");
+    } else {
+        $produit = $result[0];
+    }
+
+}
+
+if (isset($_POST['quantite'])){
+    if (!isset($_SESSION['user'])){
+        header("Location: connexion.php");
+    } else {
+        if (!isset($_SESSION['panier'])){
+            $_SESSION['panier'] = array();
+        }
+
+        for ($i = 0; $i < count($_SESSION['panier']); $i++){
+            
+        }
+
+        $_SESSION['panier'][] =  array("ref" => $_GET["ref"], "quantite" => $_POST["quantite"]);
+    }
+    var_dump($_SESSION);
+}
 
 
 ?>
@@ -40,6 +77,22 @@
                 <section>
 
                     <h2>Produit</h2>
+
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="images/<?= $produit["pdt_image"] ?>.jpg" alt="Image Produit">
+                        </div>
+                        <div class="content-box">
+                            <h3><?= $produit["pdt_designation"] ?></h3>
+                            <p><?= $produit["pdt_prix"] ?>€</p>
+                        </div>
+                    </div>
+
+                    <form action="#" method="post">
+                        <input type="number" name="quantite" id="quantite" min="1" max="100" value="1">
+                        <input type="submit" value="Ajouter au panier">
+                    </form>
+
 
 
 
