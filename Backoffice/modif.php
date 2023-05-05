@@ -18,17 +18,14 @@
         </header>
         <div id="centre">
                 <nav>
-                        <p id="accueil"><a href="accueillafleur.php" >Accueil</a></p> 
-                        <p id="pdt">Nos produits</p>
-                        <p id="accueil"><a href="accueillafleur.php" >Bulbes</a></p>
-                        <p id="accueil"><a href="accueillafleur.php" >Plantes à massif</a></p>
-                        <p id="accueil"><a href="accueillafleur.php" >Rosier</a></p> 
+                        <p id="accueil"><a href="accueillafleur.php" >Accueil</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Base de donnée</a></p> 
                         </br>
                         </br> 
                         </br> 
                         </br> 
                         </br>
-                        <p id="accueil"><a href="accueillafleur.php" >Connexion</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Deconnexion </a></p>
                 </nav>
                 <section>
                 <h1>FNAC : Mise à jour</h1>
@@ -49,14 +46,13 @@
                          **/
                         require 'sqlconnect.php';
 
-                        $nom=$_GET["nomlivre"];
-                        $autheur=$_GET["authlivre"];
-                        $conv=$_GET["prixlivre"];
-                        $prix=(float) $conv;
-                        $ID=$_GET['isbn'];
+                        $nom=$_GET["nomfleur"];
+                        $prix=$_GET["prixfleur"];
+                        $image=$_GET["imagefleur"];
+                        $ID=$_GET["ref"];
 
                         if ($nom!='') {
-                                $sql= 'UPDATE books SET title= :param01 WHERE isbn= "'. $ID . '";';
+                                $sql= 'UPDATE produit SET pdt_designation = :param01 WHERE pdt_ref= "'. $ID . '";';
                                 $requete = $connection->prepare($sql);
                                 $requete->bindValue(":param01", $nom);
                                 $requete->execute();
@@ -64,17 +60,8 @@
                                 echo "Erreur, champ vide.";
                         }
 
-                        if ($autheur!='') {
-                                $sql= 'UPDATE books SET author= :param01 WHERE isbn= "'. $ID . '";';
-                                $requete = $connection->prepare($sql);
-                                $requete->bindParam(":param01", $autheur);
-                                $requete->execute();
-                        } else {
-                                echo "Erreur, champ vide.";
-                        }
-
                         if ($prix!='') {
-                                $sql= 'UPDATE books SET price = :param01 WHERE isbn= "'. $ID . '";';
+                                $sql= 'UPDATE produit SET pdt_prix= :param01 WHERE pdt_ref= "'. $ID . '";';
                                 $requete = $connection->prepare($sql);
                                 $requete->bindParam(":param01", $prix);
                                 $requete->execute();
@@ -82,7 +69,16 @@
                                 echo "Erreur, champ vide.";
                         }
 
-                        echo 'Le livre a bien été modifié.'; 
+                        if ($image!='') {
+                                $sql= 'UPDATE produit SET pdt_image = :param01 WHERE pdt_ref= "'. $ID . '";';
+                                $requete = $connection->prepare($sql);
+                                $requete->bindParam(":param01", $image);
+                                $requete->execute();
+                        } else {
+                                echo "Erreur, champ vide.";
+                        }
+
+                        echo 'La fleur a bien été modifié.'; 
 
                         ?>
                 </section>

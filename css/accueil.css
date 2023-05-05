@@ -58,7 +58,7 @@ nav
 	margin : auto;
         width: 158 px;
         text-align: left;
-        height: 480px;
+        height: auto;
 }	
 nav p
 {
@@ -86,11 +86,10 @@ section
  {
 	display: inline-block;
 	vertical-align: top;
-        height: 450px;
 	background-color:  	#FFC0CB;
 	text-align : center;
 	vertical-align: top;
-	margin : auto;
+	padding : 20px 0;
 	width : 640px;
 	padding-top : 30px;
 }

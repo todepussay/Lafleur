@@ -18,17 +18,14 @@
         </header>
         <div id="centre">
                 <nav>
-                        <p id="accueil"><a href="accueillafleur.php" >Accueil</a></p> 
-                        <p id="pdt">Nos produits</p>
-                        <p id="accueil"><a href="accueillafleur.php" >Bulbes</a></p>
-                        <p id="accueil"><a href="accueillafleur.php" >Plantes à massif</a></p>
-                        <p id="accueil"><a href="accueillafleur.php" >Rosier</a></p> 
+                        <p id="accueil"><a href="accueillafleur.php" >Accueil</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Base de donnée</a></p> 
                         </br>
                         </br> 
                         </br> 
                         </br> 
                         </br>
-                        <p id="accueil"><a href="accueillafleur.php" >Connexion</a></p>
+                        <p id="accueil"><a href="accueillafleur.php" >Deconnexion </a></p>
                 </nav>
                 <section>
                 <h1>FNAC : Mise à jour de la base de données.</h1>
@@ -51,36 +48,36 @@
 
 
                         echo '<form action="modif.php" method="GET">';
-                        echo "Modification d'un livre:<br><br>";
-
-                        $isbn=$_GET["type"];
+                        $ref=$_GET["type"];
+                        echo '<input type="hidden" name="ref" value=' . $ref . '>';
+                        echo "Modification d'une fleur:<br><br>";
     
 
-                        $sql= "SELECT title FROM books WHERE isbn='$isbn' ;";
+                        $sql= "SELECT pdt_designation FROM produit WHERE pdt_ref='$ref' ;";
                         $titre = $connection->query($sql);
                         $ligne=$titre->fetch();
 
                         echo "<form method='get' action='modif.php'>";
-                        echo "Entrer le nouveau nom du livre.<br>";
-                        echo '<input type="text" name="nomlivre" value="' . $ligne['title'] .'" ><br>';
+                        echo "Entrer le nouveau nom de la fleur.<br>";
+                        echo '<input type="text" name="nomfleur" value="' . $ligne['pdt_designation'] .'" ><br>';
 
-                        $sql= "SELECT author FROM books WHERE isbn='$isbn' ;";
-                        $autheur = $connection->query($sql);
-                        $ligne=$autheur->fetch();
-
-                        echo "Entrer le nouvel auteur du livre.<br>";
-                        echo '<input type="text" name="authlivre" value="' . $ligne['author'] .'" ><br>';
-
-                        $sql= "SELECT price FROM books WHERE isbn='$isbn' ;";
+                        $sql= "SELECT pdt_prix FROM produit WHERE pdt_ref='$ref' ;";
                         $prix = $connection->query($sql);
                         $ligne=$prix->fetch();
 
-                        echo "Entrer le nouveau prix du livre.<br>";
-                        echo '<input type="text" name="prixlivre" value="' . $ligne['price'] .'" ><br>';
+                        echo "Entrer le nouveau prix de la fleur.<br>";
+                        echo '<input type="text" name="prixfleur" value="' . $ligne['pdt_prix'] .'" ><br>';
+
+                        $sql= "SELECT pdt_image FROM produit WHERE pdt_ref='$ref' ;";
+                        $prix = $connection->query($sql);
+                        $ligne=$prix->fetch();
+
+                        echo "Entrer la nouvelle image de la fleur.<br>";
+                        echo '<input type="text" name="imagefleur" value="' . $ligne['pdt_image'] .'" ><br>';
 
                         echo '<p><input type="submit" value="Valider"></p>';
                         ?>
-                        <input type='hidden' name='isbn' value="<?php echo $isbn;?>">
+                        <input type='hidden' name='pdt_ref' value="<?php echo $ref;?>">
                         </form>
                 </section>
         </div>
