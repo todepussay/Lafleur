@@ -11,5 +11,15 @@
 
     <?php require_once "header.php"; ?>
     
+    <div class="container" id="accueil">
+        <div class="content">
+            <p id="slogan">"Dites-le avec Lafleur"</p>
+            <img src="images/ACCUEIL.jpg" alt="Accueil Image">
+            <p>Pour recevoir un bon de commande <br> Appelez notre service commercial au 03.22.84.65.74</p>
+        </div>
+    </div>
+
+    <?php require_once "footer.php"; ?>
+
 </body>
 </html>

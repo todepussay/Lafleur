@@ -42,7 +42,7 @@ header {
 }
 
 .right {
-    width: 50%;
+    width: 30%;
 }
 
 .right > nav > ul {
@@ -62,4 +62,42 @@ header {
     border: solid 2px white;
     padding: 10px 20px;
     border-radius: 30px;
+}
+
+footer {
+    background-color: var(--light-blue);
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.container {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    text-align: center;
+    width: 80%;
+    border-radius: 50px;
+}
+
+#accueil {
+    align-items: center;
+}
+
+#accueil > .content {
+    width: 60%;
+}
+
+#accueil > .content > p {
+    font-size: 25px;
+    margin: 20px 0;
+}
+
+#accueil > .content > img {
+    border-radius: 20px;
 }

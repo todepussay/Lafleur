@@ -8,9 +8,7 @@
     <div class="right">
         <nav>
             <ul>
-                <li><a href="categorie.php?id=bul">Bulbes</a></li>
-                <li><a href="categorie.php?id=mas">Plantes à massif</a></li>
-                <li><a href="categorie.php?id=ros">Rosier</a></li>
+                <li><a href="categorie.php">Catégorie</a></li>
                 <li><a href="connexion.php">Connexion</a></li>
             </ul>
         </nav>
