@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+require_once "connect.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +25,30 @@ session_start();
                 <nav>
                         <p id="accueil"><a href="index.php" >Accueil</a></p> 
                         <p id="pdt">Nos produits</p>
-                        <p id="accueil" ><a href="categorie.php?id=bul" >Bulbes</a></p>
-                        <p id="accueil"><a href="categorie.php?id=mas" >Plantes à massif</a></p>
-                        <p id="accueil"><a href="categorie.php?id=ros" >Rosier</a></p> 
+                        <?php
+                            $sql = "SELECT * FROM categorie";
+                            $sql = $connect->prepare($sql);
+                            $sql->execute();
+    
+                            if ($sql->rowCount() == 0) {
+                                echo"<p>Il n'y a aucune catégorie(s) disponible</p>";
+                            } else {
+                                echo"<p>Nombre de catégorie(s) : ".$sql->rowCount()."</p>";
+                            }
+                    
+                            while ($ligne = $sql->fetch()) { 
+                                echo'<div>
+                                        <table>
+                                            <tr>
+                                                <strong><a href=categorie.php?id='.$ligne['cat_code'].'>'.$ligne['cat_libelle'].'</a></strong>
+                                            </tr>
+                            
+                                        </table>
+                                    </div>';
+                            }    
+                            $sql->closeCursor(); // enlève le curseur de la requête de $requete
+                        ?>
+
                         </br>
                         </br> 
                         </br> 
@@ -38,7 +62,6 @@ session_start();
                 </nav>
                 <section>
                     <?php
-                        require 'connect.php';
                         $id = $_GET['id'];
 
                         //echo"<p>id = $id</p>";//DEBUG : affiche l'id de la catégorie
@@ -55,7 +78,7 @@ session_start();
                         }
                     
                         while ($ligne = $sql->fetch()) { 
-                            echo'<div class="tableauSQL">
+                            echo'<div>
                                     <table>
                                         <tr>
                                             <td><strong>'.$ligne['pdt_designation'].'</strong></td>
